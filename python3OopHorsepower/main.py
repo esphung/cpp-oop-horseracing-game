@@ -5,16 +5,30 @@ CREATED: 				2014.01.31 (ESP)
 PURPOSE: 				A horse-racing game in Python3
 '''
 
+from random import randint
+#print (randint(0,9))
+
 class RaceLane(object):
 	"""docstring for RaceLane"""
 	def __init__(self, arg):
 		super(RaceLane, self).__init__()
 		self.arg = arg
-		self.lane = ['.','.','.']
-		i = 0
-		while i < 3:
-			print("\t{}{}".format(Horse.stallionHorse(arg), self.lane[i:]))
-			i = i + 1
+		self.horse = [Horse.stallionHorse(arg), Horse.mustangHorse(arg), Horse.donkeyHorse(arg)]
+		lane = [0,1,2,3,4,5,6,7,8,9,10]
+		j = 0
+		minRand = 0
+		while j < 1:
+			randPosition = (randint(minRand,j))
+			lane[randPosition] = self.horse[0]
+			j = j + 1
+			print(lane)
+		
+		
+		 
+		#i = 0
+		#while i < 3:
+			#print("\t{}".format(self.horse[i]))
+			#i = i + 1
 
 
 
@@ -64,7 +78,7 @@ class Horse(object):
 
 ''' Dev input '''
 #horseType = "Stallion"
-arg = "ARE YOU A HORSE???"
+arg = "READY,SET,GO!"
 #Horse(arg, horseType)
 
 position = 0
