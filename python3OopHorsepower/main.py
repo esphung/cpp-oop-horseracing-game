@@ -13,42 +13,44 @@ import random
 class Horse(object):
 	"""Class for creating a Horse"""
 	#print("I am a CLASS horse")
-	def __init__(self, arg, lane, position):
+	def __init__(self, arg, name, lane, position):
 		super(Horse, self).__init__()
 		''' generates each horse and lane '''
 		self.arg = arg
 		self.lane = lane
 		self.position = position
 
-		''' starting positions
-		i = 0
-		while i < 1:
-			lane[0] = self.arg
-			i = i + 1
-		else:
-			lane[0] = lane[0]
-			'''
-
-		''' lane position changes HERE!!! '''
-		
-		lane[position] = self.arg
-		Lane(arg, position, lane)
+		self.arg = arg
+		self.lane = lane
+		self.position = position
+		self.name = name
+		lane[position] = self.name
+		Lane(self.arg, self.name, self.position, self.lane)
 		print(lane)
+
+
+
+
+
+		
 		
 
 
 class Lane(object):
 	"""docstring for Lane"""
-	def __init__(self, arg, position, lane):
+	def __init__(self, arg,name, position, lane):
 		super(Lane, self).__init__()
 		self.arg = arg
+		self.name = name
 		''' here is where the position is defined '''
-		percentage_chance = .5
-		if random.random() < percentage_chance:
-			position = position + 1
-			#print("Yay!!!")
-			lane[position] = self.arg
-			#return
+		percentage_chance = 1.0
+		percentage_chance = .50
+		if random.random() <= percentage_chance:
+			position = count + 1
+			lane[position] = self.name
+		else:
+			lane[position] = self.name
+			return
 		
 		
 		
@@ -58,12 +60,13 @@ class Lane(object):
 position = 0
 count = 0
 
-while count < 10:
+arg = "Hello World"
+
+while count != 10:
 	lane = [0,1,2,3,4,5,6,7,8,9,10]
 
-	Horse("Stallion", lane, position)
-	Horse("Mustang",lane, position)
-	Horse("Donkey",lane, position)
+	Horse(arg, "stallion", lane, position)
+
 
 	print("=============================")
 	count = count + 1
