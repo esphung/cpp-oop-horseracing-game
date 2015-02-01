@@ -5,9 +5,8 @@ CREATED: 				2014.01.31 (ESP)
 PURPOSE: 				A horse-racing game in Python3
 '''
 
-from random import randint
+
 import random
-#print (randint(0,9))
 
 
 class Horse(object):
