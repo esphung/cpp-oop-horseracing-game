@@ -12,67 +12,59 @@ import random
 
 class Horse(object):
 	"""Class for creating a Horse"""
-	#print("I am a CLASS horse")
 	def __init__(self, arg, name, lane, position):
 		super(Horse, self).__init__()
 		''' generates each horse and lane '''
 		self.arg = arg
 		self.lane = lane
-		self.position = position
-
 		self.arg = arg
 		self.lane = lane
 		self.position = position
 		self.name = name
-		lane[position] = self.name
+		#self.lane[position] = self.name
 		Lane(self.arg, self.name, self.position, self.lane)
-		print(lane)
+		print(self.lane)
 
-
-
-
-
-		
-		
 
 
 class Lane(object):
 	"""docstring for Lane"""
-	def __init__(self, arg,name, position, lane):
+	def __init__(self, arg, name, position, lane):
 		super(Lane, self).__init__()
 		self.arg = arg
 		self.name = name
+		self.lane = lane
+		self.position = position
 		''' here is where the position is defined '''
-		percentage_chance = 1.0
 		percentage_chance = .50
 		if random.random() <= percentage_chance:
 			position = count + 1
 			lane[position] = self.name
 		else:
+			position = count
 			lane[position] = self.name
-			return
-		
-		
-		
+		if position == 10:		
+			print("{} has FINISHED to race!".format(self.name))
+			keepGoing = False
 
-''' Dev input '''
-#arg = "READY,SET,GO!"
+
+
 position = 0
 count = 0
-
 arg = "Hello World"
+MAX = 10
 
-while count != 10:
+name = ['stallion', 'mustang', 'donkey']
+
+keepGoing = True
+while (count != MAX) and (keepGoing == True):
 	lane = [0,1,2,3,4,5,6,7,8,9,10]
-
-	Horse(arg, "stallion", lane, position)
-
-
-	print("=============================")
+	for i in range(len(name)):
+		lane[0] = "Start"
+		Horse(arg, name[i], lane, position)
+		lane = [0,1,2,3,4,5,6,7,8,9,10]# reset lane	
+	input("Pass:\t{}\nPress Enter...".format(count))
 	count = count + 1
-	pass
-
-
 
 
 
