@@ -4,8 +4,6 @@ AUTHOR: 				Eric Scott Phung
 CREATED: 				2014.01.31 (ESP)
 PURPOSE: 				A horse-racing game in Python3
 '''
-
-
 import random
 
 
@@ -16,11 +14,8 @@ class Horse(object):
 		''' generates each horse and lane '''
 		self.arg = arg
 		self.lane = lane
-		self.arg = arg
-		self.lane = lane
 		self.position = position
 		self.name = name
-		#self.lane[position] = self.name
 		Lane(self.arg, self.name, self.position, self.lane)
 		print(self.lane)
 
