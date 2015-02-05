@@ -1,3 +1,7 @@
+#include <stdio.h>      /* printf, scanf, puts, NULL */
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */
+
 #include <iostream>
 #include <cstdlib>
 #include <string>
@@ -23,21 +27,13 @@ char track = '.';
 int keepGoing;
 
 //string userInput;
-int lowLimit = 1;
-int highLimit = 3;
+int lowLimit = 2;
+int highLimit = 1;
 int perc_chance;
 int passes;
 
 string horseNameSet[] = {"A","B","C","D","E","F","G","H","I","J"};
 
-//string strGo ("go");// str cmd to win
-//std::string strQuit ("quit");// str cmd to quit
-//std::string strReady ("ready");// for ready
-/*
-default_random_engine generator;
-uniform_int_distribution <int> distribution(0,2);
-int coin_flip = distribution(generator);  // generates number in the range 1..2
-*/
 
 /* Horse class for creating horse objects */
 class Horse{
@@ -46,28 +42,25 @@ public:
 		chances();// 50/50 chance determined in this function
 		//cout << perc_chance << endl;
 		advance();// advance each horse per chance
-		getPosition();// return the new position to global scope
+		//getPosition();// return the new position to global scope
 	};
 	/* Class methods of Horse class */
 
 	void advance(){
 		//position = position+1;
-		if (perc_chance == 1)
-		{
-			/* code */
-		}
-		else if (perc_chance == 2)
-		{
+		if (perc_chance == 2){
 			position = position + 1;
 			passes = passes + 1;
-		}
+			getPosition();
+		}// end if statement for chance advance
 	};
 	int getPosition(){
 		return position;
 	};
 	void chances(){
-	perc_chance = (lowLimit + (rand() %(highLimit - lowLimit)));
-	//cout << perc_chance << endl;
+		
+		perc_chance = rand() %2 +1;
+		cout << perc_chance << endl;
 
 	};
 	
@@ -107,41 +100,19 @@ void stats(){
 
 
 void start(){
-		/*
-		for (int i = 0; i < MAX; ++i){
-			stats();
-			Race object;
-			cin.ignore();
-		}*/
-
-		while (passes < 1){
-			
-			for (int i = 0; i < 1; ++i)
-			{
+		while (passes < MAX){
+			for (int i = 0; i < 1; ++i){
 				/* code */
+
 				Race object;
-				object.printLane(horseNameSet[i],position);
-				//position = 0;
-			}
-
+				object.printLane("alpha",position);
+				object.printLane("beta",position);
+				object.printLane("romeo",position);
+			}// end for iteration
 			
-			//object.printLane(horseNameSet[1],position);
-
-			
-			//objectB.printLane(horseNameSet[0], position);
-			//stats();
-			cin.ignore();
-			//passes = passes + 1;
-		}
+			cin.ignore();// prompt for each while pass
+		}// end while loop
 		
-		//getline(cin, userReady);
-		//cin >> userInput;
-		/*
-		if (userInput.compare(strGo) == 0){
-			Race object;
-			keepGoing = FALSE;
-		}*/
-		//strGo = "^[[C"
 };// end start()
 
 void menu(){
@@ -157,6 +128,7 @@ void menu(){
 int main()
 {
 	//menu();
+	srand(time(NULL));
 	start();
 	
 
