@@ -29,13 +29,17 @@ int passes;
 
 /* Horse class for creating horse objects */
 class Horse{
+private:
+	//int position;
 public:
 	Horse(){
 		chances();// 50/50 chance determined in this function
 		//cout << perc_chance << endl;
-		advance();// advance each horse per chance
+		advance();// advance position per chance
 		getPosition();// return the new position to global scope
 	};
+
+	//Horse(string name)// single parameter constructor
 	/* Class methods of Horse class */
 	void advance(){
 		//position = position+1;
@@ -59,7 +63,8 @@ public:
 class Race{
 public:
 	Race(){
-		Horse();
+		Horse();// null parameter constructor
+		//Horse(string name);// single param constructor
 		printLane("0");/* arbitrary horse name */
 	};// end of Race.Race(self.Horse())
 	/* Class methods of Race class */
@@ -88,7 +93,7 @@ int main(){
 				Race object[1];
 				cout << "=======================" << endl;
 			cin.ignore();// prompt for each while pass
-		}// end while loop
+		};// end while loop
 	
 
 	return 0;
