@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C68137AF1A85AD480045E283 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C68137AE1A85AD480045E283 /* main.cpp */; };
+		C68BABBF1A85D3A300693623 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68BABBE1A85D3A300693623 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		C68137AB1A85AD480045E283 /* xcodeHorsePowr */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = xcodeHorsePowr; sourceTree = BUILT_PRODUCTS_DIR; };
 		C68137AE1A85AD480045E283 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		C68BABBD1A85D3A200693623 /* xcodeHorsePowr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "xcodeHorsePowr-Bridging-Header.h"; sourceTree = "<group>"; };
+		C68BABBE1A85D3A300693623 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				C68137AE1A85AD480045E283 /* main.cpp */,
+				C68BABBE1A85D3A300693623 /* main.swift */,
+				C68BABBD1A85D3A200693623 /* xcodeHorsePowr-Bridging-Header.h */,
 			);
 			path = xcodeHorsePowr;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C68BABBF1A85D3A300693623 /* main.swift in Sources */,
 				C68137AF1A85AD480045E283 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,14 +208,21 @@
 		C68137B31A85AD480045E283 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "xcodeHorsePowr/xcodeHorsePowr-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		C68137B41A85AD480045E283 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "xcodeHorsePowr/xcodeHorsePowr-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -232,6 +245,7 @@
 				C68137B41A85AD480045E283 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
