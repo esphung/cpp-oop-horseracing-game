@@ -5,19 +5,16 @@
 #define TRUE 1
 #define FALSE 0
 #define TRACK 20
-#define MAX 5
 
 using namespace std;
-
-
 
 /* function prototypes */
 void advance();
 int getPosition();
-void printLane(int horseNum, int name);
+void printLane(int horseNum);
 void start();
 
-int keepGoing;
+bool keepGoing;
 
 /* ================== HORSE CLASS =============================== */
 
@@ -83,16 +80,15 @@ private:
 Horse[];
 */
 private:
-	Horse horse[5];
-	
-	//{"biscuit","tadoe","deebag","teabag","fizzle"};
+	//Horse horse[5];
+	Horse horse[1];
 public:
 /*
 public:
 	int length;
 Race(); null constructor
 */
-	int length;
+	int *length;
 	Race(){
 		//cout << "Setted length (IN RACE CLASS!!):  " << length << endl;
 		//cout << "Hello null Race() constructor" << endl;
@@ -103,25 +99,22 @@ Race(); null constructor
 		//cout << "Hello single-parameter Race() constructor" << endl;
 		//cout << "Setted length (IN RACE CLASS!!):  " << horse[0].getPosition() << endl;
 		length = length + horse[0].getPosition();
-		//cout << "Accumulated length --> " << length << endl;
-		if (length <= TRACK && keepGoing == TRUE){
-			int name[] = {1,2,3,4,5};
-			/* all horses, get position */
-			Race::printLane(horse[0].getPosition(), name[0]);
-			Race::printLane(horse[1].getPosition(), name[1]);
-			Race::printLane(horse[2].getPosition(), name[2]);
-			Race::printLane(horse[3].getPosition(), name[3]);
-			Race::printLane(horse[4].getPosition(), name[4]);
-			cout << "======================" << endl;
+		cout << "Accumulated length --> " << length << endl;
+		if (length <= TRACK){
+			/* code */
+			Race::printLane(horse[0].getPosition());
 			
 		}
 		else{
+			Race::printLane(horse[0].getPosition());
 			keepGoing = FALSE;
-		};
-
+			cout << "\t\tWINNER!" << endl;
+			
+		};// end if statement for break from loop
+		
 		
 	};
-	void printLane(int horseNum, int name);
+	void printLane(int horseNum);
 	void start();
 
 
@@ -131,29 +124,17 @@ Race(); null constructor
 
 /* ================== RACE METHODS =============================== */
 
-void Race::printLane(int horseNum, int name){
-	
+void Race::printLane(int horseNum){
 	//cout << "Race::printLane() method" << endl;
-	for (int i = 0; i <= TRACK && keepGoing == TRUE; ++i){
-		if (i == horseNum && keepGoing == TRUE){
+	for (int i = 0; i <= TRACK; ++i){
+		if (i == horseNum){
 			/* print horseNum */
-			//cout << "t(^^t)";
-			cout << name;
-		};
-		if (horseNum == TRACK && keepGoing == TRUE)
-		{
-			/* code */
-			keepGoing = FALSE;
-			cout << "\n\t\tWINNER!" << endl;
-			cout << "\t\t" << name << "!" << endl;
-			//cout << name[j] << endl;
-			i = TRACK;
-			return;
+			cout << horseNum;
 		};
 		/* print race track */
 		cout << '.';
 	};// end for loop iteration thru track size
-	cout << endl;
+	cout<< endl;
 
 };// end printLane() method
 
@@ -176,12 +157,12 @@ int main(int argc, char const *argv[])
 	//Race race;
 	//race.start();
 	keepGoing = TRUE;
-	while (keepGoing == TRUE){
+	while (keepGoing == TRUE)
+	{
 		/* code */
 		Race(1);
-		cin.ignore();// prompt for each while pass
 		//keepGoing = FALSE;
-	}// end main while loop
+	}
 
 	
 
