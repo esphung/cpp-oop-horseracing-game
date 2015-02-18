@@ -1,12 +1,22 @@
 /* Horse Race game in c++ using UML diagram */
+//	AUTHOR:			Eric Scott Phung
+//	CREATED:		2014.02.12 (esp)
+//	PURPOSE:		Horse Race created in c++
+
+/* standard libraries */
 #include <iostream>
 #include <string>
 #include <random>
+
+/* declare boolean values */
 #define TRUE 1
 #define FALSE 0
+
+/* define constants */
 #define TRACK 20
 #define MAX 5
 
+/* declare namespace */
 using namespace std;
 
 
@@ -17,57 +27,48 @@ int getPosition();
 void printLane(int horseNum, int name);
 void start();
 
+/* declare sentry variable */
 int keepGoing;
 
 /* ================== HORSE CLASS =============================== */
 
-/* Horse class */
-// Horse(){};
 class Horse{
-/* data members 
-private 
-int position;
-*/
+/* private data members */
 private:
+	/* declare position as private integer */
 	int position;
-/* methods (public)
-public: 
-Horse(); null constructor
-*/
+/* public data members */
 public:
+	/* null horse constructor */
 	Horse(){
-		//cout << "Horse() NULL constructor" << endl;
 		Horse::advance();
-		Horse::getPosition();
-		
+		Horse::getPosition();	
 	};
+	/* declare Horse class methods inside class */
 	void advance();
 	int getPosition();
 	int setPosition();
-
-
 };// end Horse class
 
-/* ================== HORSE METHODS =============================== */
+/* ================== HORSE class METHODS =============================== */
 
+/* define HOrse class advance method */
 void Horse::advance(){
-	//cout << "Horse.advance() method\nPostion: " << position << endl;
+	/* method to flip coin */
 	int coinFlip = rand() %2 +1;
-	//cout << "Coin Flip: " << coinFlip << endl;
+	/* assert side coin landed on */
 	if (coinFlip == 2){
 		/* if Heads (not Tails), then advance */
 		position = position + 1;
 	}// end if statement for coin flip
-	
-	
 };// end advance() method
-
+/* define horse class getposition method */
 int Horse::getPosition(){
-	//cout << "Horse.getPosition() method\nPosition returned: " << position << endl;
+	/* return each horse objects position
+	outside of horse class */
 	return position;
 
 };// end getPosition() method
-
 
 
 
@@ -78,33 +79,25 @@ int Horse::getPosition(){
 // Race(){};
 
 class Race{
-/* Data members 
+/* private data members */
 private:
-Horse[];
-*/
-private:
+	/* instantiate array of horse objects */
 	Horse horse[5];
 	
-	//{"biscuit","tadoe","deebag","teabag","fizzle"};
+/* public data members */
 public:
-/*
-public:
+	/* declare length as public integer */
 	int length;
-Race(); null constructor
-*/
-	int length;
+	/* null race constructor */
 	Race(){
-		//cout << "Setted length (IN RACE CLASS!!):  " << length << endl;
-		//cout << "Hello null Race() constructor" << endl;
-		//cout << "Horses at memloc:  " << horse << endl;
-		//Race::printLane(0);	
 	};// end null constructor
+	/* single parameter race constructor */
 	Race(int length){
-		//cout << "Hello single-parameter Race() constructor" << endl;
-		//cout << "Setted length (IN RACE CLASS!!):  " << horse[0].getPosition() << endl;
+		/* update length for each horse object returned */
 		length = length + horse[0].getPosition();
-		//cout << "Accumulated length --> " << length << endl;
+		/* if statement to loop thru printlane method for each horse */
 		if (length <= TRACK && keepGoing == TRUE){
+			/* initialize horse names in form of array */
 			int name[] = {1,2,3,4,5};
 			/* all horses, get position */
 			Race::printLane(horse[0].getPosition(), name[0]);
@@ -112,15 +105,17 @@ Race(); null constructor
 			Race::printLane(horse[2].getPosition(), name[2]);
 			Race::printLane(horse[3].getPosition(), name[3]);
 			Race::printLane(horse[4].getPosition(), name[4]);
+			//Race::printLane(horse[5].getPosition(), name[4]);
 			cout << "======================" << endl;
-			
 		}
 		else{
+			/* catch-all end while loop */
 			keepGoing = FALSE;
 		};
 
 		
 	};
+	/* declare methods of the horse class */
 	void printLane(int horseNum, int name);
 	void start();
 
@@ -129,17 +124,17 @@ Race(); null constructor
 
 
 
-/* ================== RACE METHODS =============================== */
+/* ================== RACE class METHODS =============================== */
 
+/* print each horse's lane */
 void Race::printLane(int horseNum, int name){
-	
-	//cout << "Race::printLane() method" << endl;
+	/* for loop to print out track */
 	for (int i = 0; i <= TRACK && keepGoing == TRUE; ++i){
 		if (i == horseNum && keepGoing == TRUE){
-			/* print horseNum */
-			//cout << "t(^^t)";
+			/* print horseName */
 			cout << name;
 		};
+		/* if statement to break loop if a horse reaches the end of track */
 		if (horseNum == TRACK && keepGoing == TRUE)
 		{
 			/* code */
@@ -153,6 +148,7 @@ void Race::printLane(int horseNum, int name){
 		/* print race track */
 		cout << '.';
 	};// end for loop iteration thru track size
+	/* endline for each track completed */
 	cout << endl;
 
 };// end printLane() method
@@ -160,16 +156,16 @@ void Race::printLane(int horseNum, int name){
 
 
 
-
+/* start method of horse class */
 void Race::start(){
-	cout << "Hello Race.start() method" << endl;
+	/* unused method */
+	//cout << "Hello Race.start() method" << endl;
 };// end start() method
 
 
 
 /* main function */
-int main(int argc, char const *argv[])
-{
+int main(){
 	/* seed randomizer */
 	srand(time(NULL));
 	/* call to construct 5x null horses in race class */
@@ -177,18 +173,12 @@ int main(int argc, char const *argv[])
 	//race.start();
 	keepGoing = TRUE;
 	while (keepGoing == TRUE){
-		/* code */
+		/* main loop for program */
 		Race(1);
-		cin.ignore();// prompt for each while pass
-		//keepGoing = FALSE;
+		cin.ignore();// prompt user for each pass
 	}// end main while loop
-
-	
-
-	
-	//race.start();
 	/* main function code */
-	//cout << "Hello WOrld" << endl;
+
 	return 0;
 }
 

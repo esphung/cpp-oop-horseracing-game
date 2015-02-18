@@ -1,16 +1,30 @@
-Game is written in Python3, c, and c++
+Assignment List OOP with Horsepower
+OOP with Horsepower
+DUE: Feb 13, 2015 11:30 PM (Past)
 
-
-
+Grade Details
+Grade	N/A
+Gradebook Comments	None
+Click to expand/collapse this submission information Submitted Feb 12, 2015 11:41 AM
+Submitted Attachments
+ ericPhung_horsePowerPython3.py (1 KB)
+ ericPhung_horsePowerC++.cpp (4 KB)
+Click to expand/collapse this submission information Submitted Feb 11, 2015 4:52 PM
+Click to expand/collapse this submission information Submitted Feb 7, 2015 1:01 AM
+Click to expand/collapse the assignment details Assignment Details
+Open Date	Jan 25, 2011 10:18 AM
+Graded?	Yes
+Points Possible	100.0
+Resubmissions Allowed?	Yes
+Remaining Submissions	Unlimited
+Click to expand/collapse the assignment instructions Assignment Instructions
 Assignment Instructions
 Overview
 
 Use the principles of Object Oriented Design (OOD) and Object Oriented Programming (OOP) to develop a simulation of a horse race. Each horse will be an object, and the race will be another object that contains a list of horses and manages the race. Along the way, you will experiment with UML, create classes, review access modifiers, build member variables, add access methods, and create constructors.
-
 The Project
 
 Build a program that simulates a horse race. Each horse starts at position 0. On each turn, the horse 'flips a coin' (I don't know how horses flip coins, but just go with me for a moment.) Half the time, the horse will advance one step. The other primary entity in this game is the race (or the track, if you prefer.) This object will contain a series of horses. It will also have the ability to start the race. When the race is running, the race class will 'tell' each horse to advance, and will print out a track diagram showing the relative positions of the horses.
-
 Sample Run
 
 Here is a sample run of the program:
@@ -213,20 +227,11 @@ Press enter for another turn:
 Horse 3 wins!
 ................4........
 Press enter for another turn:
-
-
-
-
-
-
 Code Organization
 
 While it is possible to write this program in a procedural fashion, this program is a perfect candidate for the object-oriented paradigm. You may organize the objects however you wish, but you must define at least two classes. If you wish, you may use the UML diagram I created as a starting point:
 
-
-
-
-
+ 
 Programming Methodology
 
 This program must compile on Pegasus. You may use a single file or you may break the file into headers and code files, as you prefer. It is not necessary to create a GUI for this project. Since this is an exercise in OOP programming, you are expected to create at least two classes. If you're unsure where to start, begin with the class diagram provided above. All the methods and member variables necessary are listed in the UML diagram, but you might need to create other local variables inside your methods. There are other legitimate ways to organize this data, but this is one of the simpler techniques.
@@ -249,3 +254,6 @@ Give horses with different abilities different odds. Reward a long shot (40% cha
 Multi-player - Allow more than one player to place bets, keeping track of each player's performance
 Bribery. Allow user to 'purchase' performance modifications. This will increase or decrease a particular horse's performance during a race, but there is a chance the player will be caught and immediately lose all his money.
 Cosmetic changes. Add a menu system, GUI, or other features to make the game more aesthetically appealing. Try writing the game in another language.
+Supporting Materials
+ oopHorse.jpg (28 KB)
+  
